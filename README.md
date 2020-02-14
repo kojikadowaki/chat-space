@@ -22,26 +22,29 @@
 
 ### Association
 - has_many :messages
-- groups, through: groups_users
+- has_many :groups_users
+- has_many :groups, through: :groups_users
+
 
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
-|group_id|references|null: false, foreign_key: true|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :messages
-- users, through: groups_users
+- has_many :groups_users
+- has_many :users, through: groups_users
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|user_id|references|null: false, unique: true|
+|text|text||
+|image|string||
+|user_id|references|null: false, foreign_key: true, unique: true|
 |group_id|references|null: false, foreign_key: true|
 
 ### Association
