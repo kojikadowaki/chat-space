@@ -20,7 +20,7 @@
       .imagebox__text
         .imagebox__input-icon
           %input.imagebox__text-input{type:"text", name:"text", placeholder:"type a message",  id:"text"}  
-            %label.imagebox__text-icon{:for => "image"}
+            %label.imagebox__text-icon{for: "image"}
               = icon('far', 'file-image')
               %input.input-image-box{type:"file", name:"image", id:"image"}
         %input.imagebox__send-icon{type:"submit", name:"send", value:"Send", id:"send", class:"submit-btn"}
