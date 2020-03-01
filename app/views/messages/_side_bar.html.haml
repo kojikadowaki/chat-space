@@ -1,0 +1,18 @@
+.side-bar
+  .side-bar__header
+    .side-bar__items
+      .side-bar__items--name
+        koji
+      .side-bar__items--box
+        .side-bar__edit
+          = link_to "#"  do
+            = icon('far', 'edit', class: "side-bar__btn--icon")
+        .side-bar__cog
+          = link_to "#" do
+            = icon('fas', 'cog', class: "side-bar__btn--icon")
+  .group-list
+    .group-list__contens  
+      .group-list__contens--name
+        techcamp
+      .group-list__contens--message
+        まだメッセージがありません
