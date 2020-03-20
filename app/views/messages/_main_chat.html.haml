@@ -2,27 +2,29 @@
   .chat-main__header
     .header__items
       .header__items--name
-        test
+        = @group.name
         .header__items--member
-          Member : koji
+          Member:
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
       .header__edit
-        = link_to "#", class: "header__edit--icon"  do
+        = link_to edit_group_path(@group), class: "header__edit--icon"  do
           Edit   
     .contens__message-list
-      .contens__message
-        .contens__message--name
-          koji
-        .contens__message--date
-          2019/11/20(wed) 17:43:01
-      .contens__message--comments
-        テスト
+      .message
+        = render @messages
+        .upper-message
+          .upper-message__user-name
+          .upper-message__user-date
+        .lower-message
+
     .chat-main__footer
       .imagebox__text
-        .imagebox__input-icon
-          %input.imagebox__text-input{type:"text", name:"text", placeholder:"type a message",  id:"text"}  
-            %label.imagebox__text-icon{for: "image"}
-              = icon('far', 'file-image')
-              %input.input-image-box{type:"file", name:"image", id:"image"}
-        %input.imagebox__send-icon{type:"submit", name:"send", value:"Send", id:"send", class:"submit-btn"}
-          
-
+        .new_message        
+          = form_for [@group, @message] do |f|
+            .imagebox__input-icon
+              = f.text_field :content, class: 'imagebox__text-input', placeholder: 'type a message'
+              = f.label :image, class: 'imagebox__text-icon' do
+                = icon('far', 'file-image')
+              = f.file_field :image, class: 'input-image-box'
+            = f.submit 'Send', class: 'submit-btn'
