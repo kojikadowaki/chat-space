@@ -11,13 +11,7 @@
         = link_to edit_group_path(@group), class: "header__edit--icon"  do
           Edit   
     .contens__message-list
-      .message
-        = render @messages
-        .upper-message
-          .upper-message__user-name
-          .upper-message__user-date
-        .lower-message
-
+      = render @messages
     .chat-main__footer
       .imagebox__text
         .new_message        
