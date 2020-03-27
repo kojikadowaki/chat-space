@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+
+a{
+  text-decoration: none;
+}
 // 変数:カラー 
 $background_color: #253141;
 $color: #ffffff;
@@ -189,7 +193,7 @@ $he_vh: 100vh;
         bottom: 0;
         
         .imagebox__text{
-          width: 90%;
+          width: 95%;
           margin-top: 20px;
           margin-left: 40px;
           @include flexbox_between();
